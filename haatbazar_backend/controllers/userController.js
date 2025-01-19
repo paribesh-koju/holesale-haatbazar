@@ -51,6 +51,7 @@ const registerUser = async (req, res) => {
 
 // Login User
 const loginUser = async (req, res) => {
+  //putting captcha token in req.body
   const { email, password, captchaToken } = req.body;
   if (!email || !password || !captchaToken) {
     console.error("Email or password not provided");
@@ -83,7 +84,9 @@ const loginUser = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     console.log("Password comparison result:", isMatch);
+    //checking if the password is correct
     if (!isMatch) {
+      //if the password is incorrect then the failed login attempts will be increased by 1
       user.failedLoginAttempts += 1;
       if (user.failedLoginAttempts >= 3) {
         user.lockUntil = Date.now() + 5 * 60 * 1000; // Lock account for 5 minutes
@@ -164,6 +167,7 @@ const updateUserProfile = async (req, res) => {
       res.status(404).json({ success: false, message: "User not found" });
     }
   } catch (error) {
+    //handling the error on the update user profile
     console.error("Error updating user profile:", error);
     res.status(500).json({ success: false, message: "Internal server error" });
   }
@@ -247,6 +251,7 @@ const verifyOtpAndPassword = async (req, res) => {
     console.log(`Stored OTP: ${user.otpReset}`);
     console.log(`Provided OTP: ${otp}`);
 
+    //checking if the otp is correct
     if (user.otpReset != otp) {
       console.log("Provided OTP does not match stored OTP");
       return res.status(400).json({ message: "Invalid OTP" });

@@ -126,6 +126,7 @@ const deleteProduct = async (req, res) => {
       message: "Product deleted",
     });
   } catch (error) {
+    //handling the error on the delete product
     console.log(error);
     res.status(500).json({
       success: false,
@@ -146,9 +147,11 @@ const updateProduct = async (req, res) => {
         `../public/products/${imageName}`
       );
 
+      //moving the image to the new path
       await productImage.mv(imageUploadPath);
       req.body.productImage = imageName;
 
+      //checking if the product has an image
       const existingProduct = await Products.findById(req.params.id);
       if (existingProduct.productImage) {
         const oldImagePath = path.join(
@@ -159,6 +162,7 @@ const updateProduct = async (req, res) => {
       }
     }
 
+    //updating the product
     const updatedProduct = await Products.findByIdAndUpdate(
       req.params.id,
       req.body,
@@ -220,6 +224,7 @@ const productPagination = async (req, res) => {
         message: "No Product Found!",
       });
     }
+    //returning the products
     res.status(201).json({
       success: true,
       message: "Product Fetched",
@@ -238,6 +243,7 @@ const productPagination = async (req, res) => {
 const getProductsByStore = async (req, res) => {
   const storeName = req.query.storeName;
   try {
+    //fetching the products by store name
     const products = await Products.find({ storeName });
     res.status(200).json({
       success: true,
