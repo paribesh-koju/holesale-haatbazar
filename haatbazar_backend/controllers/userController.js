@@ -67,8 +67,9 @@ const loginUser = async (req, res) => {
         .status(400)
         .json({ success: false, message: "Invalid credentials" });
     }
-
+    //putting this in try catch block to avoid the error message to be displayed in the console
     if (user.lockUntil && user.lockUntil > Date.now()) {
+      //if the user is locked
       return res.status(400).json({
         success: false,
         message: `Account locked. Please try again after ${new Date(
@@ -86,6 +87,7 @@ const loginUser = async (req, res) => {
       user.failedLoginAttempts += 1;
       if (user.failedLoginAttempts >= 3) {
         user.lockUntil = Date.now() + 5 * 60 * 1000; // Lock account for 5 minutes
+        //setting the failed login attempts to zero
         user.failedLoginAttempts = 0;
       }
       await user.save();
@@ -95,15 +97,18 @@ const loginUser = async (req, res) => {
         .json({ success: false, message: "Password Invalid" });
     }
     user.failedLoginAttempts = 0;
+    //resetting the lock until to null
     user.lockUntil = null;
     await user.save();
 
+    //generating the token
     const token = jwt.sign(
       { userId: user._id, isAdmin: user.isAdmin },
       process.env.JWT_SECRET,
       { expiresIn: "2h" }
     );
 
+    //sending the user data to the frontend
     const userData = {
       _id: user._id,
       username: user.username,
