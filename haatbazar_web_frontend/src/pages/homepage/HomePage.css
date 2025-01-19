@@ -1,0 +1,158 @@
+/* General Styling */
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+  margin-bottom: 20px;
+}
+
+.btn-custom:hover {
+  background-color: #86cd93; /* Darker green on hover */
+  transition: background-color 0.3s ease;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Category Sidebar Styling */
+.category-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.category-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.category-list li svg {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+/* Card Styling */
+.card-custom {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-custom .card-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card-custom .card-text {
+  font-size: 0.875rem;
+}
+
+.card-custom .card-footer {
+  background-color: #f8f9fa;
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.card-custom img {
+  border-radius: 10px;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.card-custom .badge {
+  background-color: #28a745;
+  color: #fff;
+}
+.card-custom .badge:hover {
+  background-color: #218838;
+}
+
+/* Trending Section Styling */
+.trending-section {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.trending-section .card {
+  flex: 0 0 auto;
+  width: 250px;
+  margin-right: 10px;
+}
+
+/* Tabs Styling */
+.nav-tabs {
+  margin-top: 20px;
+}
+
+.tab-content .card {
+  margin-bottom: 20px;
+}
+
+/* Advertisement Section Styling */
+.advertisement-section {
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .category-list li {
+    font-size: 14px;
+  }
+
+  .card-custom .card-title {
+    font-size: 0.875rem;
+  }
+
+  .card-custom .card-text {
+    font-size: 0.75rem;
+  }
+
+  .card-custom .card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-custom .badge {
+    font-size: 0.75rem;
+  }
+
+  .trending-section .card {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+  }
+}
