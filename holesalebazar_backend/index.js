@@ -6,6 +6,10 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const productRoute = require("./routes/productRoute.js");
 const userRoutes = require("./routes/userRoute.js"); // Import the user routes
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
+const logger = require("./services/logger.js"); // Import logger
+const morgan = require("morgan");
 
 // Load environment variables
 config();
@@ -19,6 +23,9 @@ app.use(fileUpload());
 // Serve static files from the public directory
 app.use("/public", express.static("public"));
 
+app.use(mongoSanitize());
+app.use(xss());
+
 // Set up CORS
 const corsOption = {
   origin: true,
@@ -26,6 +33,18 @@ const corsOption = {
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOption));
+
+// Log HTTP requests using Morgan and Winston
+app.use(
+  morgan("combined", {
+    stream: {
+      write: (message) => logger.info(message.trim()), // Log HTTP requests
+    },
+  })
+);
+
+// Log server start
+logger.info("Starting the server...");
 
 // Connect to the database
 try {

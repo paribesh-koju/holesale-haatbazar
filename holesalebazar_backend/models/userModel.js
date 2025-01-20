@@ -22,6 +22,7 @@ const userSchema = new Schema({
     type: Date,
     default: null, // Account is not locked by default
   },
+  passwordExpiresAt: { type: Date, default: Date.now },
   isAdmin: { type: Boolean, default: false }, // Adding isAdmin field to handle user roles
 });
 

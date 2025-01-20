@@ -35,6 +35,7 @@ const registerUser = async (req, res) => {
       username,
       email,
       password, // Password will be hashed in the pre-save hook
+      passwordExpiresAt: Date.now() + 90 * 24 * 60 * 60 * 1000,
     });
 
     await newUser.save();
@@ -200,7 +201,7 @@ const forgotPassword = async (req, res) => {
       service: "gmail",
       auth: {
         user: "kojuparibesh1234@gmail.com",
-        pass: "imbv rxri dzqe sorh",
+        pass: "nrkx mdil kvts zpmp",
       },
     });
 
@@ -265,6 +266,7 @@ const verifyOtpAndPassword = async (req, res) => {
     }
 
     user.password = password; // using password pre-save hook up from model
+    user.passwordExpiresAt = Date.now() + 90 * 24 * 60 * 60 * 1000;
     user.otpReset = undefined;
     user.otpResetExpires = undefined;
     await user.save();
