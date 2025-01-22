@@ -22,6 +22,7 @@ const LoginPage = ({ setCartProducts }) => {
     setCaptchaToken(token);
   };
 
+  // Assess password strength
   const assessPasswordStrength = (password) => {
     if (password.length < 8) return "Weak";
     const hasUpperCase = /[A-Z]/.test(password);
