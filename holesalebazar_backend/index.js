@@ -24,6 +24,7 @@ app.use(fileUpload());
 // Serve static files from the public directory
 app.use("/public", express.static("public"));
 
+// Sanitize MongoDB input
 app.use(mongoSanitize());
 app.use(xss());
 
@@ -64,6 +65,7 @@ app.use("/api/products", productRoute);
 //providing the port
 const PORT = process.env.PORT || 5000;
 
+//starting the server
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });
