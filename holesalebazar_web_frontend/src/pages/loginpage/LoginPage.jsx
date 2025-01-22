@@ -79,6 +79,7 @@ const LoginPage = ({ setCartProducts }) => {
   const handleForgotPasswordClose = () => setShowForgotPassword(false);
   const handleForgotPasswordShow = () => setShowForgotPassword(true);
 
+  // Render login page
   return (
     <div
       className="d-flex justify-content-center align-items-center vh-100"
@@ -137,6 +138,7 @@ const LoginPage = ({ setCartProducts }) => {
               <strong>Password Strength: {passwordStrength}</strong>
             </div>
           )}
+
           <div className="mb-3">
             <ReCAPTCHA
               sitekey="6LflQ7kqAAAAAN1YIhR92_LfxphhpglxSX--gmba" // Replace with your reCAPTCHA site key
