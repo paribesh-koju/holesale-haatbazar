@@ -55,6 +55,7 @@ const loginUser = async (req, res) => {
   //putting captcha token in req.body
   const { email, password, captchaToken } = req.body;
   if (!email || !password || !captchaToken) {
+    //if email or password not provided
     console.error("Email or password not provided");
     return res
       .status(400)
