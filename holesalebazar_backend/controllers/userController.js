@@ -6,9 +6,11 @@ const nodemailer = require("nodemailer");
 // Register User
 const registerUser = async (req, res) => {
   const { username, email, password, confirmPassword } = req.body;
+  //checking if the user name is empty
   const passwordRegex =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordRegex.test(password)) {
+    //if the password is not valid
     return res.status(400).json({
       success: false,
       message:
