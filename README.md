@@ -5,4 +5,4 @@
   Node.js and Express.js are used to build the backend of this web-based e-commerce application on MVC framework
   
 
-
+As part of managing vulnerabilities, security audits and other penetration checks are used to test and report on the security of the system. The authentication solutions help keep track of user actions to find actions that aren't safe. This makes the service a safe place for everyone.
