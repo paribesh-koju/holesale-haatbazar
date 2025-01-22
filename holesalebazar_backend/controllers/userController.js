@@ -214,6 +214,7 @@ const forgotPassword = async (req, res) => {
       text: `Your OTP for password reset is: ${otp}`,
     };
 
+    //sending the mail to the user
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
@@ -266,6 +267,7 @@ const verifyOtpAndPassword = async (req, res) => {
     }
 
     user.password = password; // using password pre-save hook up from model
+    //setting the password expires at to 90 days
     user.passwordExpiresAt = Date.now() + 90 * 24 * 60 * 60 * 1000;
     user.otpReset = undefined;
     user.otpResetExpires = undefined;
