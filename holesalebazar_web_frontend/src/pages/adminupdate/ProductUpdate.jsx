@@ -38,6 +38,7 @@ const UpdateProduct = () => {
       }
     };
 
+    // Load product data
     loadProduct();
   }, [productId]);
 
@@ -49,6 +50,7 @@ const UpdateProduct = () => {
     }
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
