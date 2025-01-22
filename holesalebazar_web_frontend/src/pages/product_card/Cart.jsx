@@ -70,6 +70,7 @@ const Cart = ({ cartProducts, removeFromCart, updateCart }) => {
   };
 
   const handleCheckout = () => {
+    // Confirm checkout
     if (window.confirm("Are you sure you want to proceed with the checkout?")) {
       products.forEach((product) => removeFromCart(product.id)); // Clear the cart
       toast.success("Checkout successful!");
