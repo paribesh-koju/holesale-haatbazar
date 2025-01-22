@@ -68,6 +68,7 @@ function App() {
     return [];
   });
 
+  // Save cart to local storage when user or cartProducts change
   useEffect(() => {
     if (user && user._id) {
       console.log(`Saving cart for user ${user._id}:`, cartProducts); // Debug log

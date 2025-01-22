@@ -64,6 +64,7 @@ const LoginPage = ({ setCartProducts }) => {
 
       navigate("/redirect");
     } catch (error) {
+      // Handle error
       console.error("Login failed", error);
       toast.error("Login failed. Please check your credentials.");
     }
