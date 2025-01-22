@@ -17,6 +17,7 @@ const RegisterPage = () => {
 
   const navigate = useNavigate();
 
+  // Assess password strength
   const assessPasswordStrength = (password) => {
     if (password.length < 8) return "Weak";
     const hasUpperCase = /[A-Z]/.test(password);
@@ -24,6 +25,7 @@ const RegisterPage = () => {
     const hasNumber = /\d/.test(password);
     const hasSpecialChar = /[@$!%*?&]/.test(password);
 
+    // Check if password has at least one uppercase letter, one lowercase letter, one number, and one special character
     if (hasUpperCase && hasLowerCase && hasNumber && hasSpecialChar)
       return "Strong";
     if (hasUpperCase || hasLowerCase) return "Moderate";
