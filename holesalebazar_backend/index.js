@@ -9,8 +9,8 @@ const userRoutes = require("./routes/userRoute.js"); // Import the user routes
 
 const xss = require("xss-clean");
 const logger = require("./services/logger.js"); // Import logger
-const morgan = require("morgan");
-const mongoSanitize = require("express-mongo-sanitize");
+const morgan = require("morgan"); // Log HTTP requests
+const mongoSanitize = require("express-mongo-sanitize"); // Sanitize MongoDB input
 
 // Load environment variables
 config();
