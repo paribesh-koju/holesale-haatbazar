@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const csrfToken = localStorage.getItem("csrfToken");
+
 const API_URL = "http://localhost:3030"; // Your backend API URL
 
 // Function to get authorization headers

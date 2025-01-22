@@ -6,10 +6,11 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const productRoute = require("./routes/productRoute.js");
 const userRoutes = require("./routes/userRoute.js"); // Import the user routes
-const mongoSanitize = require("express-mongo-sanitize");
+
 const xss = require("xss-clean");
 const logger = require("./services/logger.js"); // Import logger
 const morgan = require("morgan");
+const mongoSanitize = require("express-mongo-sanitize");
 
 // Load environment variables
 config();
