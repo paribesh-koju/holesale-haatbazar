@@ -69,16 +69,19 @@ const RegisterPage = () => {
   const validatePasswordStrength = (password) => {
     const passwordRegex =
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    // Check if password meets the requirements
     if (!passwordRegex.test(password)) {
       return "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.";
     }
     return "";
   };
 
+  // Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  // Toggle confirm password visibility
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
