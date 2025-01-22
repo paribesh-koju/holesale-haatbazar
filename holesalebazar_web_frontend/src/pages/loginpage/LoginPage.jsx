@@ -74,6 +74,7 @@ const LoginPage = ({ setCartProducts }) => {
     setShowPassword(!showPassword);
   };
 
+  // Close forgot password modal
   const handleForgotPasswordClose = () => setShowForgotPassword(false);
   const handleForgotPasswordShow = () => setShowForgotPassword(true);
 
