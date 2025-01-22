@@ -9,6 +9,7 @@ const logger = winston.createLogger({
       return `${timestamp} [${level.toUpperCase()}]: ${message}`;
     })
   ),
+  // Define log transports
   transports: [
     new winston.transports.Console(), // Log to console
     new winston.transports.File({ filename: "logs/activity.log" }), // Log to file
