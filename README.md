@@ -14,6 +14,4 @@ The following are made to make these APIs scalable and safe.
 Most API sites need JWT authentication to make sure that only authorized users can access them and use their services.
 
 
-Backend Dependencies
 
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/3bb1fd23-0300-4a9a-b581-2b4701311b1c" />
