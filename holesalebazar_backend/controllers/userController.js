@@ -274,6 +274,7 @@ const verifyOtpAndPassword = async (req, res) => {
     //setting the password expires at to 90 days
     user.passwordExpiresAt = Date.now() + 90 * 24 * 60 * 60 * 1000;
     user.otpReset = undefined;
+    // Reset OTP reset
     user.otpResetExpires = undefined;
     await user.save();
 
@@ -285,6 +286,7 @@ const verifyOtpAndPassword = async (req, res) => {
   }
 };
 
+// Exporting the user routes
 module.exports = {
   registerUser,
   loginUser,
