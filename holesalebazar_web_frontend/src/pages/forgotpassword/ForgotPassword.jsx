@@ -12,6 +12,7 @@ const ForgotPassword = () => {
 
   //making the function to handle the password comming form the backend
   const handleForgotPassword = async (e) => {
+    //preventing the default behaviour
     e.preventDefault();
     try {
       const res = await forgotPasswordApi({ email });
