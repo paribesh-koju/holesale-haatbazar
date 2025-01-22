@@ -13,6 +13,7 @@ const Cart = ({ cartProducts, removeFromCart, updateCart }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // Update products based on time added
       const now = Date.now();
       setProducts((products) =>
         products.filter((product) => {

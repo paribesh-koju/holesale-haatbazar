@@ -45,6 +45,7 @@ const LoginPage = ({ setCartProducts }) => {
     event.preventDefault();
     try {
       const response = await loginUser({ email, password, captchaToken });
+      // Log successful login
       console.log("Login successful", response);
       toast.success("Login successful!");
 
